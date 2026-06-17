@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { message: parsed.error.errors[0]?.message || "输入数据无效" },
+        { message: parsed.error.issues[0]?.message || "输入数据无效" },
         { status: 400 }
       );
     }

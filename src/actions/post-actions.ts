@@ -22,7 +22,7 @@ export async function createPost(formData: FormData) {
 
   const parsed = postSchema.safeParse(rawData);
   if (!parsed.success) {
-    throw new Error(parsed.error.errors[0]?.message || "输入数据无效");
+    throw new Error(parsed.error.issues[0]?.message || "输入数据无效");
   }
 
   const { title, content, categoryId } = parsed.data;
