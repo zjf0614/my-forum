@@ -25,7 +25,7 @@ export default function LoginPage() {
     } catch (err) {
       if (err instanceof ZodError) {
         const fieldErrors: Record<string, string> = {};
-        err.errors.forEach((e) => {
+        err.issues.forEach((e) => {
           const field = e.path[0] as string;
           if (!fieldErrors[field]) fieldErrors[field] = e.message;
         });
